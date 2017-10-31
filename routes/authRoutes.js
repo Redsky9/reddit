@@ -9,17 +9,22 @@ module.exports = (app) => {
   app.get('/auth/google', passport.authenticate('google', scope));
   
   app.get('/auth/google/callback', passport.authenticate('google', {
-    successRedirect: '/api/current_user',
-    failureRedirect: '/fail'
+    successRedirect: '/',
+    failureRedirect: '/error'
   }));
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   });
 
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
+  });
+
+  app.get('/', (req, res) => {
+    console.log(req.user);
+    res.render('index.ejs', {user: req.user});
   });
 
 }
