@@ -3,10 +3,12 @@ let mongoose = require('mongoose');
 let bP = require('body-parser');
 let cookieSession = require('cookie-session');
 let passport = require('passport');
+let bluebird = require('bluebird');
 const PORT = process.env.PORT || 5000;
 let app = express();
 let keys = require('./config/keys');
 
+mongoose.Promise = bluebird;
 mongoose.connect(keys.mongoURI);
 
 app.use(cookieSession({
