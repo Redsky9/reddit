@@ -4,14 +4,15 @@ let mongoose = require('mongoose');
 const keys = require('../config/keys.js');
 
 let User = mongoose.model('users');
+let Post = mongoose.model('posts');
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user.googleId);
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id).then(user => {
-    done(null, user);
+  User.findOne({googleId: id}).then(user => {
+    done(null, user)
   });
 });
 
@@ -38,7 +39,6 @@ passport.use(new GoogleStrategy({
         if(err) throw err;
       })
       .then(user => {
-        console.log(user);
         done(null, user)
       });
       
