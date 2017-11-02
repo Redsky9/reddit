@@ -26,4 +26,8 @@ module.exports = (app) => {
     res.render('index.ejs', {user: req.user});
   });
 
+  app.get('/submit', (req, res) => {
+    res.render('submitPage.ejs', {user: req.user});
+  });
+
 }

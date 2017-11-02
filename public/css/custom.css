@@ -26,9 +26,36 @@ nav {
 }
 
 /* MAIN BODY */
-.main {
+.main, .side{
   border: 1px solid #dcdbdb;
   padding: 5px;
   min-height: 93vh!important;
 }
 
+
+/* SIDE */
+.adds, .links {
+  height: 30vh;
+}
+
+.formLinks {
+  text-align: center;
+}
+
+.submitLink {
+  color: white;
+  background: #b6e0ff; 
+  padding: 5px 9px;
+  border-radius: 6px;
+}
+
+.submitLink:hover {
+  text-decoration: none;
+  background: #89d0ff; 
+  color: white;
+}
+
+/* SUMBIT PAGE */
+.form-container {
+  top: 200px;
+}

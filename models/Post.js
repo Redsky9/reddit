@@ -7,9 +7,10 @@ let postSchema = new Schema({
   fields:{
     post_id: String,
     createdBy: String,
+    creatorUrl: String,
     createdOn: String,
     votes: Number,
-    text: String
+    postData: String
   }
 });
 
